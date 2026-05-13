@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="student_stress.css">
+</head>
+<body>
+    
+    
+    <div class="container">
+        <form action="" id="stress_relief">
+        <h1>Student stress relief recommendation</h1>
+
+        <ul>
+            <li>
+                <label for="name">Student name: </label> <br>
+                <input type="text" required id="name" style="width: 100%;">
+                <br>
+            </li>
+            
+            <li>
+                
+                <label for="name">Roll Number: </label>
+                <input type="text" required id="roll_number"  style="width: 100%;">
+                <br>
+            </li>
+            
+            <li>
+                
+                <label for="name">Branch: </label>
+                <input type="text" required id="branch"  style="width: 100%;">
+                <br>
+            </li>
+            
+            <li>
+                
+                <label for="name">Department: </label>
+                <input type="text" required id="dept"  style="width: 100%;">
+                <br>
+            </li>
+            
+            <li>
+                
+                <label for="name" id="stress_level">Current Stress Level: </label>
+                <select name="" id="stress_level"  style="width: 100%;">
+                    <option value="" selected disabled hidden>Select your stress</option>
+                </li>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            <br>
+            
+            <li>
+                
+                <label for="name">Prefered activity type: </label>
+                <select name="" id="activity" style="width: 100%;">
+                <option value="" selected disabled hidden>
+                </li>
+                <option value="Music">Music</option>
+                <option value="Exercise">Exercise</option>
+                <option value="Meditation">Meditation</option>
+                <option value="Gaming">Gaming</option>
+                <option value="Reading">Reading</option>
+            </select>
+            <br>
+            
+            <li>
+                
+                <label for="name">Hours of sleep: </label>
+                <input type="number" required id="sleep"  style="width: 100%;" min="0" max="24">
+                <br>
+            </li>
+            
+            <li>
+                
+                <label for="name">Time spent on social media(in hours): </label>
+                <input type="number" required id="social_media"  style="width: 100%;" min="0" max="24">
+                <br>
+            </li>
+        </ul>
+        
+        <button type="submit" id="button_submit"  style="width: 100%;">Get Recommendations</button>
+    </form>
+    </div>
+
+    <div class="show" style="background-color: rgb(141, 194, 141);">
+        <p id="ans"></p>
+    </div>
+
+</body>
+
+
+<script>
+
+    let form = document.getElementById("stress_relief");
+
+    form.addEventListener("submit", function(event){
+
+        event.preventDefault();
+        
+        // saare inputs joh user ne dale hai unko store karna hai js variables mein
+
+    let name = document.getElementById("name").value.trim();
+    let roll_number = document.getElementById("roll_number").value.trim();
+    let branch = document.getElementById("branch").value.trim();
+    let dept = document.getElementById("dept").value.trim();
+    let stress = document.getElementById("stress_level").value;
+    let activity = document.getElementById("activity").value;
+    let sleep = document.getElementById("sleep").value;
+    let social = document.getElementById("social_media").value;
+
+    //checking every input is filled once more
+    if(name === "" || roll_number === "" || branch ==="" || dept ===""){
+        alert("please fill all the text fields!");
+        return;
+    }
+
+    if(stress === ""){
+        alert("please select the stress level");
+        return;
+    }
+    if(activity === ""){
+        alert("please select the activity level");
+        return;
+    }
+
+    if(sleep === "" || social === ""){
+        alert("please eneter tghe sleep hours and the social media hours");
+        return;
+    }
+
+    let recommendation = "";
+
+    //npw giving the stressa recomendation on the basic oft the stress level choose and the time of socail media and the activity done
+
+    if(stress === "low"){
+        recommendation += "your stress level is low! <br> Kee maintaining a healthy routine <br>";
+        recommendation+= "To keep maintaing this you can add YOGA and meditation to your routine <br>";
+    }
+
+    else if(stress==="medium"){
+        recommendation+="your stress level is medium! <br> Try deep breathing exercise for 5 to 10 minutes <br>";
+        recommendation+="Listen to calm music and share your inner thoughts with some of your closed one";
+    }
+
+    else if(stress==="high"){
+        recommendation += "your stress level is high! <br> practice meditation for 10 to 15 minutes";
+        recommendation+= "try to spend your void time in your hobbies and telling to a friend about how you feels always works!";
+    }
+
+    //sleeps
+    if(activity === "Music"){
+        recommendation += "Listen to relaxing lo-fi or instrumental music.<br>";
+    }
+
+    else if(activity === "Exercise"){
+        recommendation += "Do a 15-minute workout or stretching.<br>";
+    }
+
+    else if(activity === "Meditation"){
+        recommendation += "Try meditation before sleep or after waking up in the morning.<br>";
+    }
+
+    else if(activity === "Gaming"){
+        recommendation += "Play games in moderation and avoid excessive screen time.<br>";
+    }
+
+    else if(activity === "Reading"){
+        recommendation += "Read motivational or self improvement books.<br>";
+    }
+
+    //socail media
+    if(social > 5){
+        recommendation += "Reduce social media usage and spend time offline with your friends and family and try spending on time on searching yoou and doing your hobbies in the free time.<br>";
+      }
+
+    else{
+        recommendation += "Your social media usage is under control.<br>";
+    }
+
+    //arr
+    let quotes = [
+        "Believe in yourself. You are stronger than you think.",
+        "Small progress is still progress.",
+        "Take a deep breath. Everything will be okay.",
+        "Your mental health matters.",
+        "Success starts with self-care."
+    ];
+
+    let randomQuote = quotes[Math.floor(Math.random()*quotes.length)];
+
+
+//now displaying the whole data here
+
+document.getElementById("ans").innerHTML = `
+<p><strong>Name:</strong> ${name}</p>
+<p><strong>Roll Number:</strong> ${roll_number}</p>
+<p><strong>Branch:</strong> ${branch}</p>
+<p><strong>Department:</strong> ${dept}</p>
+<p><strong>Stress Level:</strong> ${stress}</p>
+<p><strong>Preferred Activity:</strong> ${activity}</p>
+<hr>
+Our Recommendation <br>
+${recommendation}
+<hr>
+"${randomQuote}"`;
+});
+</script>
+</html>

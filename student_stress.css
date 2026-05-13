@@ -1,0 +1,26 @@
+.container{
+    background-color: beige;
+    display: flex;
+    justify-content: center;
+    padding: 150px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.show{
+    display: flex;
+    justify-content: center;
+    padding: 150px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    text-align: center;
+}
+
+#button_submit{
+    background-color: rgb(46, 148, 232);
+    height: 30px;
+    font-size: 20px;
+}
+body{
+    background-color: beige;
+}

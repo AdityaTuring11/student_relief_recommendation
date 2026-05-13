@@ -42,29 +42,27 @@
             </li>
             
             <li>
-                
-                <label for="name"Current Stress Level: </label>
+                <label for="name">Current Stress Level: </label>
                 <select name="" id="stress_level"  style="width: 100%;">
                     <option value="" selected disabled hidden>Select your stress</option>
-                </li>
-                <option value="low">Low</option>
-                <option value="medium">Medium</option>
-                <option value="high">High</option>
-            </select>
-            <br>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </li>
+                <br>
             
             <li>
-                
                 <label for="name">Prefered activity type: </label>
                 <select name="" id="activity" style="width: 100%;">
-                <option value="" selected disabled hidden>
-                </li>
-                <option value="Music">Music</option>
-                <option value="Exercise">Exercise</option>
-                <option value="Meditation">Meditation</option>
-                <option value="Gaming">Gaming</option>
-                <option value="Reading">Reading</option>
-            </select>
+                <option value="" selected disabled hidden>Select activity prefered</option>
+                    <option value="Music">Music</option>
+                    <option value="Exercise">Exercise</option>
+                    <option value="Meditation">Meditation</option>
+                    <option value="Gaming">Gaming</option>
+                    <option value="Reading">Reading</option>
+                </select>
+            </li>
             <br>
             
             <li>
@@ -118,7 +116,7 @@
         return;
     }
 
-    if(stress === ""){
+    if(stress_level === ""){
         alert("please select the stress level");
         return;
     }
@@ -136,17 +134,17 @@
 
     //npw giving the stressa recomendation on the basic oft the stress level choose and the time of socail media and the activity done
 
-    if(stress === "low"){
+    if(stress_level === "low"){
         recommendation += "your stress level is low! <br> Kee maintaining a healthy routine <br>";
         recommendation+= "To keep maintaing this you can add YOGA and meditation to your routine <br>";
     }
 
-    else if(stress==="medium"){
+    else if(stress_level==="medium"){
         recommendation+="your stress level is medium! <br> Try deep breathing exercise for 5 to 10 minutes <br>";
         recommendation+="Listen to calm music and share your inner thoughts with some of your closed one";
     }
 
-    else if(stress==="high"){
+    else if(stress_level==="high"){
         recommendation += "your stress level is high! <br> practice meditation for 10 to 15 minutes";
         recommendation+= "try to spend your void time in your hobbies and telling to a friend about how you feels always works!";
     }
